@@ -1,0 +1,13 @@
+nutrient_name,min_per_person_day
+Energy(kcal),2100
+Protein(g),52.5
+Fat(g),49.25
+Calcium(mg),1100
+Iron(mg),22
+VitaminA(ug),500
+ThiamineB1(mg),0.9
+RiboflavinB2(mg),1.4
+NicacinB3(mg),12
+Folate(ug),160
+VitaminC(mg),28
+Iodine(ug),150

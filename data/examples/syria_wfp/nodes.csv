@@ -1,0 +1,16 @@
+node_id,node_type,demand_persons,latitude,longitude,country
+Gaziantep,supplier_international,,37.0662,37.3833,Turkey
+Beirut,supplier_international,,33.8938,35.5018,Lebanon
+Amman,supplier_international,,31.9454,35.9284,Jordan
+Ar Raqqa,demand,10000,35.9528,39.0108,Syrian Arab Republic
+Hassakeh,hybrid_supply_demand,10000,36.5025,40.7440,Syrian Arab Republic
+Dara,hybrid_supply_demand,20000,32.6189,36.1021,Syrian Arab Republic
+Dayr_Az_Zor,hybrid_supply_demand,25000,35.3359,40.1408,Syrian Arab Republic
+Qamishli,hybrid_supply_demand,5000,37.0500,41.2167,Syrian Arab Republic
+Homs,supplier_regional,,34.7369,36.7264,Syrian Arab Republic
+Damascus,supplier_regional,,33.5138,36.2765,Syrian Arab Republic
+Aleppo,supplier_regional,,36.2021,37.1343,Syrian Arab Republic
+Jubb al-Jarrah,demand,2000,35.2833,37.5167,Syrian Arab Republic
+Idleb,demand,5000,35.9306,36.6339,Syrian Arab Republic
+As_Suweida,supplier_regional,,32.7121,36.5644,Syrian Arab Republic
+Hama,supplier_regional,,35.1318,36.7516,Syrian Arab Republic

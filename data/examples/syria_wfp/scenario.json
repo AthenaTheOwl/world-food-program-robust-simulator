@@ -1,0 +1,9 @@
+{
+  "name": "Syria WFP 2021",
+  "description": "Simplified WFP food distribution network in Syria — MIT 15.094 case study. Optimizes food procurement and distribution for ~77,000 displaced persons across a multi-echelon supply network spanning Turkey, Lebanon, Jordan, and Syria.",
+  "currency": "USD",
+  "weight_unit": "metric_ton",
+  "time_unit": "day",
+  "num_periods": 1,
+  "budget": null
+}

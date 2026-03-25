@@ -1,0 +1,188 @@
+node_id,commodity_id,price_per_ton,price_std_fraction,correlation_group,cross_correlation
+Gaziantep,Beans,800,0.05,,
+Gaziantep,Bulgur,450,0.05,,
+Gaziantep,Cheese,15000,0.05,,
+Gaziantep,Fish,900,0.05,,
+Gaziantep,Meat,1200,0.05,,
+Gaziantep,Corn-soya blend (CSB),800,0.05,,
+Gaziantep,Dates,500,0.05,,
+Gaziantep,Dried skim milk (enriched) (DSM),1600,0.05,,
+Gaziantep,Milk,1200,0.05,,
+Gaziantep,Salt,800,0.05,,
+Gaziantep,Lentils,500,0.05,,
+Gaziantep,Maize,300,0.05,,
+Gaziantep,Maize meal,300,0.05,,
+Gaziantep,Chickpeas,550,0.05,,
+Gaziantep,Rice,575,0.05,,
+Gaziantep,Sorghum/millet,320,0.05,,
+Gaziantep,Soya-fortified bulgur wheat,1100,0.05,,
+Gaziantep,Soya-fortified maize meal,900,0.05,,
+Gaziantep,Soya-fortified sorghum grits,1300,0.05,,
+Gaziantep,Soya-fortified wheat flour,900,0.05,,
+Gaziantep,Sugar,1000,0.05,,
+Gaziantep,Oil,1400,0.05,,
+Gaziantep,Wheat,300,0.05,,
+Gaziantep,Wheat flour,300,0.05,,
+Gaziantep,Wheat-soya blend (WSB),850,0.05,,
+Beirut,Beans,800,0.05,,
+Beirut,Bulgur,450,0.05,,
+Beirut,Cheese,15000,0.05,,
+Beirut,Fish,900,0.05,,
+Beirut,Meat,1200,0.05,,
+Beirut,Corn-soya blend (CSB),800,0.05,,
+Beirut,Dates,500,0.05,,
+Beirut,Dried skim milk (enriched) (DSM),1600,0.05,,
+Beirut,Milk,1200,0.05,,
+Beirut,Salt,800,0.05,,
+Beirut,Lentils,500,0.05,,
+Beirut,Maize,300,0.05,,
+Beirut,Maize meal,300,0.05,,
+Beirut,Chickpeas,550,0.05,,
+Beirut,Rice,575,0.05,,
+Beirut,Sorghum/millet,320,0.05,,
+Beirut,Soya-fortified bulgur wheat,1100,0.05,,
+Beirut,Soya-fortified maize meal,900,0.05,,
+Beirut,Soya-fortified sorghum grits,1300,0.05,,
+Beirut,Soya-fortified wheat flour,900,0.05,,
+Beirut,Sugar,1000,0.05,,
+Beirut,Oil,1400,0.05,,
+Beirut,Wheat,300,0.05,,
+Beirut,Wheat flour,300,0.05,,
+Beirut,Wheat-soya blend (WSB),850,0.05,,
+Amman,Beans,800,0.05,,
+Amman,Bulgur,450,0.05,,
+Amman,Cheese,15000,0.05,,
+Amman,Fish,900,0.05,,
+Amman,Meat,1200,0.05,,
+Amman,Corn-soya blend (CSB),800,0.05,,
+Amman,Dates,500,0.05,,
+Amman,Dried skim milk (enriched) (DSM),1600,0.05,,
+Amman,Milk,1200,0.05,,
+Amman,Salt,800,0.05,,
+Amman,Lentils,500,0.05,,
+Amman,Maize,300,0.05,,
+Amman,Maize meal,300,0.05,,
+Amman,Chickpeas,550,0.05,,
+Amman,Rice,575,0.05,,
+Amman,Sorghum/millet,320,0.05,,
+Amman,Soya-fortified bulgur wheat,1100,0.05,,
+Amman,Soya-fortified maize meal,900,0.05,,
+Amman,Soya-fortified sorghum grits,1300,0.05,,
+Amman,Soya-fortified wheat flour,900,0.05,,
+Amman,Sugar,1000,0.05,,
+Amman,Oil,1400,0.05,,
+Amman,Wheat,300,0.05,,
+Amman,Wheat flour,300,0.05,,
+Amman,Wheat-soya blend (WSB),850,0.05,,
+Homs,Beans,1506.38,0.30,Homs,0.05
+Homs,Bulgur,536.17,0.30,Homs,0.05
+Homs,Cheese,2127.66,0.30,Homs,0.05
+Homs,Fish,4416.33,0.30,Homs,0.05
+Homs,Meat,5191.49,0.30,Homs,0.05
+Homs,Dates,1702.13,0.30,Homs,0.05
+Homs,Milk,382.98,0.30,Homs,0.05
+Homs,Salt,255.32,0.30,Homs,0.05
+Homs,Lentils,680.85,0.30,Homs,0.05
+Homs,Chickpeas,1191.49,0.30,Homs,0.05
+Homs,Rice,885.11,0.30,Homs,0.05
+Homs,Sugar,425.53,0.30,Homs,0.05
+Homs,Oil,1131.91,0.30,Homs,0.05
+Homs,Wheat flour,442.55,0.30,Homs,0.05
+Damascus,Beans,1414.89,0.30,Damascus,0.05
+Damascus,Bulgur,482.27,0.30,Damascus,0.05
+Damascus,Cheese,2085.11,0.30,Damascus,0.05
+Damascus,Fish,4025.30,0.30,Damascus,0.05
+Damascus,Meat,4939.72,0.30,Damascus,0.05
+Damascus,Dates,1702.13,0.30,Damascus,0.05
+Damascus,Milk,432.62,0.30,Damascus,0.05
+Damascus,Salt,198.58,0.30,Damascus,0.05
+Damascus,Lentils,617.02,0.30,Damascus,0.05
+Damascus,Chickpeas,1000.00,0.30,Damascus,0.05
+Damascus,Rice,730.50,0.30,Damascus,0.05
+Damascus,Sugar,469.50,0.30,Damascus,0.05
+Damascus,Oil,1070.21,0.30,Damascus,0.05
+Damascus,Wheat flour,480.85,0.30,Damascus,0.05
+Aleppo,Beans,882.98,0.30,Aleppo,0.05
+Aleppo,Bulgur,527.66,0.30,Aleppo,0.05
+Aleppo,Cheese,2138.30,0.30,Aleppo,0.05
+Aleppo,Fish,3479.01,0.30,Aleppo,0.05
+Aleppo,Meat,3800.41,0.30,Aleppo,0.05
+Aleppo,Dates,1475.18,0.30,Aleppo,0.05
+Aleppo,Milk,444.15,0.30,Aleppo,0.05
+Aleppo,Salt,254.08,0.30,Aleppo,0.05
+Aleppo,Lentils,586.88,0.30,Aleppo,0.05
+Aleppo,Chickpeas,762.41,0.30,Aleppo,0.05
+Aleppo,Rice,702.13,0.30,Aleppo,0.05
+Aleppo,Sugar,490.25,0.30,Aleppo,0.05
+Aleppo,Oil,936.88,0.30,Aleppo,0.05
+Aleppo,Wheat flour,486.70,0.30,Aleppo,0.05
+As_Suweida,Beans,1421.99,0.30,As_Suweida,0.05
+As_Suweida,Bulgur,815.60,0.30,As_Suweida,0.05
+As_Suweida,Cheese,2560.28,0.30,As_Suweida,0.05
+As_Suweida,Fish,4562.01,0.30,As_Suweida,0.05
+As_Suweida,Meat,5175.53,0.30,As_Suweida,0.05
+As_Suweida,Dates,2049.65,0.30,As_Suweida,0.05
+As_Suweida,Milk,429.08,0.30,As_Suweida,0.05
+As_Suweida,Salt,237.59,0.30,As_Suweida,0.05
+As_Suweida,Lentils,624.11,0.30,As_Suweida,0.05
+As_Suweida,Chickpeas,1063.83,0.30,As_Suweida,0.05
+As_Suweida,Rice,673.76,0.30,As_Suweida,0.05
+As_Suweida,Sugar,615.60,0.30,As_Suweida,0.05
+As_Suweida,Oil,1255.32,0.30,As_Suweida,0.05
+As_Suweida,Wheat flour,560.28,0.30,As_Suweida,0.05
+Hama,Beans,1361.70,0.30,Hama,0.05
+Hama,Bulgur,533.33,0.30,Hama,0.05
+Hama,Cheese,2014.18,0.30,Hama,0.05
+Hama,Fish,4416.33,0.30,Hama,0.05
+Hama,Meat,5276.60,0.30,Hama,0.05
+Hama,Dates,1702.13,0.30,Hama,0.05
+Hama,Milk,425.53,0.30,Hama,0.05
+Hama,Salt,255.32,0.30,Hama,0.05
+Hama,Lentils,666.67,0.30,Hama,0.05
+Hama,Chickpeas,1163.12,0.30,Hama,0.05
+Hama,Rice,885.11,0.30,Hama,0.05
+Hama,Sugar,448.23,0.30,Hama,0.05
+Hama,Oil,1072.34,0.30,Hama,0.05
+Hama,Wheat flour,468.09,0.30,Hama,0.05
+Hassakeh,Beans,1127.66,0.30,Hassakeh,0.05
+Hassakeh,Bulgur,574.47,0.30,Hassakeh,0.05
+Hassakeh,Cheese,2000.00,0.30,Hassakeh,0.05
+Hassakeh,Fish,3488.59,0.30,Hassakeh,0.05
+Hassakeh,Meat,4574.47,0.30,Hassakeh,0.05
+Hassakeh,Dates,1304.96,0.30,Hassakeh,0.05
+Hassakeh,Milk,496.45,0.30,Hassakeh,0.05
+Hassakeh,Salt,170.21,0.30,Hassakeh,0.05
+Hassakeh,Lentils,638.30,0.30,Hassakeh,0.05
+Hassakeh,Chickpeas,829.79,0.30,Hassakeh,0.05
+Hassakeh,Rice,1014.18,0.30,Hassakeh,0.05
+Hassakeh,Sugar,617.02,0.30,Hassakeh,0.05
+Hassakeh,Oil,978.72,0.30,Hassakeh,0.05
+Hassakeh,Wheat flour,425.53,0.30,Hassakeh,0.05
+Dara,Beans,425.53,0.30,Dara,0.05
+Dara,Bulgur,489.36,0.30,Dara,0.05
+Dara,Cheese,1659.57,0.30,Dara,0.05
+Dara,Fish,4111.56,0.30,Dara,0.05
+Dara,Meat,4760.64,0.30,Dara,0.05
+Dara,Dates,1574.47,0.30,Dara,0.05
+Dara,Milk,340.43,0.30,Dara,0.05
+Dara,Salt,255.32,0.30,Dara,0.05
+Dara,Lentils,723.40,0.30,Dara,0.05
+Dara,Chickpeas,893.62,0.30,Dara,0.05
+Dara,Rice,936.17,0.30,Dara,0.05
+Dara,Sugar,494.68,0.30,Dara,0.05
+Dara,Oil,1106.38,0.30,Dara,0.05
+Dara,Wheat flour,510.64,0.30,Dara,0.05
+Dayr_Az_Zor,Beans,1184.40,0.30,Dayr_Az_Zor,0.05
+Dayr_Az_Zor,Bulgur,609.93,0.30,Dayr_Az_Zor,0.05
+Dayr_Az_Zor,Cheese,1929.08,0.30,Dayr_Az_Zor,0.05
+Dayr_Az_Zor,Fish,4447.00,0.30,Dayr_Az_Zor,0.05
+Dayr_Az_Zor,Meat,4336.88,0.30,Dayr_Az_Zor,0.05
+Dayr_Az_Zor,Dates,1645.39,0.30,Dayr_Az_Zor,0.05
+Dayr_Az_Zor,Milk,351.06,0.30,Dayr_Az_Zor,0.05
+Dayr_Az_Zor,Salt,170.21,0.30,Dayr_Az_Zor,0.05
+Dayr_Az_Zor,Lentils,978.72,0.30,Dayr_Az_Zor,0.05
+Dayr_Az_Zor,Chickpeas,943.26,0.30,Dayr_Az_Zor,0.05
+Dayr_Az_Zor,Rice,822.70,0.30,Dayr_Az_Zor,0.05
+Dayr_Az_Zor,Sugar,531.91,0.30,Dayr_Az_Zor,0.05
+Dayr_Az_Zor,Oil,1134.75,0.30,Dayr_Az_Zor,0.05
+Dayr_Az_Zor,Wheat flour,592.20,0.30,Dayr_Az_Zor,0.05

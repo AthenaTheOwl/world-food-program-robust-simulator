@@ -1,0 +1,3 @@
+constraint_id,expression,description
+carb_protein_ratio,"carbs >= 4 * Protein(g)","Carbohydrate to protein ratio must be at least 4:1 by mass"
+carb_fat_ratio,"carbs >= 4 * Fat(g)","Carbohydrate to fat ratio must be at least 4:1 by mass"

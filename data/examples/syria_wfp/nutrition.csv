@@ -1,0 +1,301 @@
+commodity_id,nutrient_name,per_100g
+Beans,Energy(kcal),335
+Beans,Protein(g),20
+Beans,Fat(g),1.2
+Beans,Calcium(mg),143
+Beans,Iron(mg),8.2
+Beans,VitaminA(ug),0
+Beans,ThiamineB1(mg),0.5
+Beans,RiboflavinB2(mg),0.22
+Beans,NicacinB3(mg),2.1
+Beans,Folate(ug),180
+Beans,VitaminC(mg),0
+Beans,Iodine(ug),0
+Bulgur,Energy(kcal),350
+Bulgur,Protein(g),11
+Bulgur,Fat(g),1.5
+Bulgur,Calcium(mg),23
+Bulgur,Iron(mg),7.8
+Bulgur,VitaminA(ug),0
+Bulgur,ThiamineB1(mg),0.3
+Bulgur,RiboflavinB2(mg),0.1
+Bulgur,NicacinB3(mg),5.5
+Bulgur,Folate(ug),38
+Bulgur,VitaminC(mg),0
+Bulgur,Iodine(ug),0
+Cheese,Energy(kcal),355
+Cheese,Protein(g),22.5
+Cheese,Fat(g),28
+Cheese,Calcium(mg),630
+Cheese,Iron(mg),0.2
+Cheese,VitaminA(ug),120
+Cheese,ThiamineB1(mg),0.03
+Cheese,RiboflavinB2(mg),0.45
+Cheese,NicacinB3(mg),0.2
+Cheese,Folate(ug),0
+Cheese,VitaminC(mg),0
+Cheese,Iodine(ug),0
+Fish,Energy(kcal),305
+Fish,Protein(g),22
+Fish,Fat(g),24
+Fish,Calcium(mg),330
+Fish,Iron(mg),2.7
+Fish,VitaminA(ug),0
+Fish,ThiamineB1(mg),0.4
+Fish,RiboflavinB2(mg),0.3
+Fish,NicacinB3(mg),6.5
+Fish,Folate(ug),16
+Fish,VitaminC(mg),0
+Fish,Iodine(ug),0
+Meat,Energy(kcal),220
+Meat,Protein(g),21
+Meat,Fat(g),15
+Meat,Calcium(mg),14
+Meat,Iron(mg),4.1
+Meat,VitaminA(ug),0
+Meat,ThiamineB1(mg),0.2
+Meat,RiboflavinB2(mg),0.23
+Meat,NicacinB3(mg),3.2
+Meat,Folate(ug),2
+Meat,VitaminC(mg),0
+Meat,Iodine(ug),0
+Corn-soya blend (CSB),Energy(kcal),380
+Corn-soya blend (CSB),Protein(g),18
+Corn-soya blend (CSB),Fat(g),6
+Corn-soya blend (CSB),Calcium(mg),513
+Corn-soya blend (CSB),Iron(mg),18.5
+Corn-soya blend (CSB),VitaminA(ug),500
+Corn-soya blend (CSB),ThiamineB1(mg),0.65
+Corn-soya blend (CSB),RiboflavinB2(mg),0.5
+Corn-soya blend (CSB),NicacinB3(mg),6.8
+Corn-soya blend (CSB),Folate(ug),0
+Corn-soya blend (CSB),VitaminC(mg),40
+Corn-soya blend (CSB),Iodine(ug),0
+Dates,Energy(kcal),245
+Dates,Protein(g),2
+Dates,Fat(g),0.5
+Dates,Calcium(mg),32
+Dates,Iron(mg),1.2
+Dates,VitaminA(ug),0
+Dates,ThiamineB1(mg),0.09
+Dates,RiboflavinB2(mg),0.1
+Dates,NicacinB3(mg),2.2
+Dates,Folate(ug),13
+Dates,VitaminC(mg),0
+Dates,Iodine(ug),0
+Dried skim milk (enriched) (DSM),Energy(kcal),360
+Dried skim milk (enriched) (DSM),Protein(g),36
+Dried skim milk (enriched) (DSM),Fat(g),1
+Dried skim milk (enriched) (DSM),Calcium(mg),1257
+Dried skim milk (enriched) (DSM),Iron(mg),1
+Dried skim milk (enriched) (DSM),VitaminA(ug),1500
+Dried skim milk (enriched) (DSM),ThiamineB1(mg),0.42
+Dried skim milk (enriched) (DSM),RiboflavinB2(mg),1.55
+Dried skim milk (enriched) (DSM),NicacinB3(mg),1
+Dried skim milk (enriched) (DSM),Folate(ug),50
+Dried skim milk (enriched) (DSM),VitaminC(mg),0
+Dried skim milk (enriched) (DSM),Iodine(ug),0
+Milk,Energy(kcal),360
+Milk,Protein(g),36
+Milk,Fat(g),1
+Milk,Calcium(mg),912
+Milk,Iron(mg),0.5
+Milk,VitaminA(ug),280
+Milk,ThiamineB1(mg),0.28
+Milk,RiboflavinB2(mg),1.21
+Milk,NicacinB3(mg),0.6
+Milk,Folate(ug),37
+Milk,VitaminC(mg),0
+Milk,Iodine(ug),0
+Salt,Energy(kcal),0
+Salt,Protein(g),0
+Salt,Fat(g),0
+Salt,Calcium(mg),0
+Salt,Iron(mg),0
+Salt,VitaminA(ug),0
+Salt,ThiamineB1(mg),0
+Salt,RiboflavinB2(mg),0
+Salt,NicacinB3(mg),0
+Salt,Folate(ug),0
+Salt,VitaminC(mg),0
+Salt,Iodine(ug),1000000
+Lentils,Energy(kcal),340
+Lentils,Protein(g),20
+Lentils,Fat(g),0.6
+Lentils,Calcium(mg),51
+Lentils,Iron(mg),9
+Lentils,VitaminA(ug),0
+Lentils,ThiamineB1(mg),0.5
+Lentils,RiboflavinB2(mg),0.25
+Lentils,NicacinB3(mg),2.6
+Lentils,Folate(ug),0
+Lentils,VitaminC(mg),0
+Lentils,Iodine(ug),0
+Maize,Energy(kcal),350
+Maize,Protein(g),10
+Maize,Fat(g),4
+Maize,Calcium(mg),13
+Maize,Iron(mg),4.9
+Maize,VitaminA(ug),0
+Maize,ThiamineB1(mg),0.32
+Maize,RiboflavinB2(mg),0.12
+Maize,NicacinB3(mg),1.7
+Maize,Folate(ug),0
+Maize,VitaminC(mg),0
+Maize,Iodine(ug),0
+Maize meal,Energy(kcal),360
+Maize meal,Protein(g),9
+Maize meal,Fat(g),3.5
+Maize meal,Calcium(mg),10
+Maize meal,Iron(mg),2.5
+Maize meal,VitaminA(ug),0
+Maize meal,ThiamineB1(mg),0.3
+Maize meal,RiboflavinB2(mg),0.1
+Maize meal,NicacinB3(mg),1.8
+Maize meal,Folate(ug),0
+Maize meal,VitaminC(mg),0
+Maize meal,Iodine(ug),0
+Chickpeas,Energy(kcal),335
+Chickpeas,Protein(g),22
+Chickpeas,Fat(g),1.4
+Chickpeas,Calcium(mg),130
+Chickpeas,Iron(mg),5.2
+Chickpeas,VitaminA(ug),0
+Chickpeas,ThiamineB1(mg),0.6
+Chickpeas,RiboflavinB2(mg),0.19
+Chickpeas,NicacinB3(mg),3
+Chickpeas,Folate(ug),100
+Chickpeas,VitaminC(mg),0
+Chickpeas,Iodine(ug),0
+Rice,Energy(kcal),360
+Rice,Protein(g),7
+Rice,Fat(g),0.5
+Rice,Calcium(mg),7
+Rice,Iron(mg),1.2
+Rice,VitaminA(ug),0
+Rice,ThiamineB1(mg),0.2
+Rice,RiboflavinB2(mg),0.08
+Rice,NicacinB3(mg),2.6
+Rice,Folate(ug),11
+Rice,VitaminC(mg),0
+Rice,Iodine(ug),0
+Sorghum/millet,Energy(kcal),335
+Sorghum/millet,Protein(g),11
+Sorghum/millet,Fat(g),3
+Sorghum/millet,Calcium(mg),26
+Sorghum/millet,Iron(mg),4.5
+Sorghum/millet,VitaminA(ug),0
+Sorghum/millet,ThiamineB1(mg),0.34
+Sorghum/millet,RiboflavinB2(mg),0.15
+Sorghum/millet,NicacinB3(mg),3.3
+Sorghum/millet,Folate(ug),0
+Sorghum/millet,VitaminC(mg),0
+Sorghum/millet,Iodine(ug),0
+Soya-fortified bulgur wheat,Energy(kcal),350
+Soya-fortified bulgur wheat,Protein(g),17
+Soya-fortified bulgur wheat,Fat(g),1.5
+Soya-fortified bulgur wheat,Calcium(mg),54
+Soya-fortified bulgur wheat,Iron(mg),4.7
+Soya-fortified bulgur wheat,VitaminA(ug),0
+Soya-fortified bulgur wheat,ThiamineB1(mg),0.25
+Soya-fortified bulgur wheat,RiboflavinB2(mg),0.13
+Soya-fortified bulgur wheat,NicacinB3(mg),4.2
+Soya-fortified bulgur wheat,Folate(ug),74
+Soya-fortified bulgur wheat,VitaminC(mg),0
+Soya-fortified bulgur wheat,Iodine(ug),0
+Soya-fortified maize meal,Energy(kcal),390
+Soya-fortified maize meal,Protein(g),13
+Soya-fortified maize meal,Fat(g),1.5
+Soya-fortified maize meal,Calcium(mg),178
+Soya-fortified maize meal,Iron(mg),4.8
+Soya-fortified maize meal,VitaminA(ug),228
+Soya-fortified maize meal,ThiamineB1(mg),0.7
+Soya-fortified maize meal,RiboflavinB2(mg),0.3
+Soya-fortified maize meal,NicacinB3(mg),3.1
+Soya-fortified maize meal,Folate(ug),0
+Soya-fortified maize meal,VitaminC(mg),0
+Soya-fortified maize meal,Iodine(ug),0
+Soya-fortified sorghum grits,Energy(kcal),360
+Soya-fortified sorghum grits,Protein(g),360
+Soya-fortified sorghum grits,Fat(g),1
+Soya-fortified sorghum grits,Calcium(mg),40
+Soya-fortified sorghum grits,Iron(mg),2
+Soya-fortified sorghum grits,VitaminA(ug),0
+Soya-fortified sorghum grits,ThiamineB1(mg),0.2
+Soya-fortified sorghum grits,RiboflavinB2(mg),0.1
+Soya-fortified sorghum grits,NicacinB3(mg),1.7
+Soya-fortified sorghum grits,Folate(ug),50
+Soya-fortified sorghum grits,VitaminC(mg),0
+Soya-fortified sorghum grits,Iodine(ug),0
+Soya-fortified wheat flour,Energy(kcal),360
+Soya-fortified wheat flour,Protein(g),16
+Soya-fortified wheat flour,Fat(g),1.3
+Soya-fortified wheat flour,Calcium(mg),211
+Soya-fortified wheat flour,Iron(mg),4.8
+Soya-fortified wheat flour,VitaminA(ug),265
+Soya-fortified wheat flour,ThiamineB1(mg),0.66
+Soya-fortified wheat flour,RiboflavinB2(mg),0.36
+Soya-fortified wheat flour,NicacinB3(mg),4.6
+Soya-fortified wheat flour,Folate(ug),0
+Soya-fortified wheat flour,VitaminC(mg),0
+Soya-fortified wheat flour,Iodine(ug),0
+Sugar,Energy(kcal),400
+Sugar,Protein(g),0
+Sugar,Fat(g),0
+Sugar,Calcium(mg),0
+Sugar,Iron(mg),0
+Sugar,VitaminA(ug),0
+Sugar,ThiamineB1(mg),0
+Sugar,RiboflavinB2(mg),0
+Sugar,NicacinB3(mg),0
+Sugar,Folate(ug),0
+Sugar,VitaminC(mg),0
+Sugar,Iodine(ug),0
+Oil,Energy(kcal),885
+Oil,Protein(g),0
+Oil,Fat(g),100
+Oil,Calcium(mg),0
+Oil,Iron(mg),0
+Oil,VitaminA(ug),0
+Oil,ThiamineB1(mg),0
+Oil,RiboflavinB2(mg),0
+Oil,NicacinB3(mg),0
+Oil,Folate(ug),0
+Oil,VitaminC(mg),0
+Oil,Iodine(ug),0
+Wheat,Energy(kcal),330
+Wheat,Protein(g),12.3
+Wheat,Fat(g),1.5
+Wheat,Calcium(mg),36
+Wheat,Iron(mg),4
+Wheat,VitaminA(ug),0
+Wheat,ThiamineB1(mg),0.3
+Wheat,RiboflavinB2(mg),0.07
+Wheat,NicacinB3(mg),5
+Wheat,Folate(ug),51
+Wheat,VitaminC(mg),0
+Wheat,Iodine(ug),0
+Wheat flour,Energy(kcal),350
+Wheat flour,Protein(g),11.5
+Wheat flour,Fat(g),1.5
+Wheat flour,Calcium(mg),29
+Wheat flour,Iron(mg),3.7
+Wheat flour,VitaminA(ug),0
+Wheat flour,ThiamineB1(mg),0.28
+Wheat flour,RiboflavinB2(mg),0.14
+Wheat flour,NicacinB3(mg),4.5
+Wheat flour,Folate(ug),0
+Wheat flour,VitaminC(mg),0
+Wheat flour,Iodine(ug),0
+Wheat-soya blend (WSB),Energy(kcal),370
+Wheat-soya blend (WSB),Protein(g),20
+Wheat-soya blend (WSB),Fat(g),6
+Wheat-soya blend (WSB),Calcium(mg),750
+Wheat-soya blend (WSB),Iron(mg),20.8
+Wheat-soya blend (WSB),VitaminA(ug),498
+Wheat-soya blend (WSB),ThiamineB1(mg),1.5
+Wheat-soya blend (WSB),RiboflavinB2(mg),0.6
+Wheat-soya blend (WSB),NicacinB3(mg),9.1
+Wheat-soya blend (WSB),Folate(ug),0
+Wheat-soya blend (WSB),VitaminC(mg),40
+Wheat-soya blend (WSB),Iodine(ug),0
