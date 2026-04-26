@@ -1,127 +1,106 @@
-# Food Relief Optimizer
+<!-- ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ -->
 
-An interactive simulator for humanitarian food relief planning under uncertainty, built on a real World Food Programme scenario in Syria.
+# N° 04 · food relief optimizer
 
-**[Live demo →](http://localhost:8501)** (run locally with `streamlit run app.py`)
+> *humanitarian logistics, under uncertainty.*
 
-![Python](https://img.shields.io/badge/python-3.11+-blue)
-![Streamlit](https://img.shields.io/badge/streamlit-1.40+-red)
-![License](https://img.shields.io/badge/license-MIT-green)
+77,000 displaced people in syria. an interactive simulator that walks through what happens when you actually have to plan it: what to buy, where to source it, how to ship it — and what to do when prices spike, routes close, or the budget gets cut.
 
-## What This Does
+`python` · `streamlit` · `cvxpy` · `MIT` · 2024 · **status: solved**
 
-77,000 displaced people in Syria need food daily. This app shows how different optimization approaches handle the real planning decisions: what to buy, where to source it, how to ship it — and what happens when prices spike, routes close, or budgets get cut.
+[**open the demo →**](http://localhost:8501) (run locally with `streamlit run app.py`)
 
-**The guided overview walks through 7 steps:**
+<!-- ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ -->
 
-| Step | Question | Method |
+## the seven rooms
+
+a guided tour. each room is a different question and a different method.
+
+| Room | Question | Method |
 |------|----------|--------|
-| 1. The Problem | What does the supply network look like? | Data visualization |
-| 2. Optimal Plan | What's the cheapest way to feed everyone? | Linear programming |
-| 3. Budget Cuts | What happens when money runs out? | Budget-constrained LP |
-| 4. Price Risk | How volatile are regional vs international prices? | Uncertainty modeling |
-| 5. Robust Plan | How much extra to spend for 95% safety? | Second-order cone program |
-| 6. Stress Test | Does the theory hold under 5,000 random shocks? | Monte Carlo simulation |
-| 7. Smart Contracts | Can contracts + flexibility beat static robustness? | Two-stage stochastic program |
+| 1 · the problem        | what does the supply network look like?         | data viz |
+| 2 · the optimal plan   | cheapest way to feed everyone?                  | linear program |
+| 3 · the budget cuts    | what happens when the money runs out?           | budget-constrained LP |
+| 4 · the price risk     | how volatile are regional vs international prices? | uncertainty modeling |
+| 5 · the robust plan    | how much extra to spend for 95% safety?         | second-order cone program |
+| 6 · the stress test    | does the theory hold under 5,000 random shocks? | monte carlo |
+| 7 · the smart contracts| can contracts + flexibility beat static robustness? | two-stage stochastic program |
 
-## Key Results (Syria WFP Scenario)
+## what came back
 
-| Metric | Value |
-|--------|-------|
-| Nominal cost | $31,046/day |
-| Robust 95% cost | $35,565/day (+15%) |
-| Two-stage adaptive | $28,201/day |
-| Budget $6k → nutrition | 19.3% coverage |
-| Monte Carlo calibration | 50.8% / 90.1% / 95.1% |
+the syria WFP scenario, with the dial turned in different directions.
 
-## Quick Start
+| metric                   | value             |
+|--------------------------|-------------------|
+| nominal cost             | $31,046 / day     |
+| robust 95% cost          | $35,565 / day · *+15%* |
+| two-stage adaptive       | $28,201 / day     |
+| budget $6k → nutrition   | 19.3% coverage    |
+| monte carlo calibration  | 50.8% / 90.1% / 95.1% |
+
+## quick start
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/food-relief-optimizer.git
-cd food-relief-optimizer
+git clone https://github.com/AthenaTheOwl/world-food-program-robust-simulator.git
+cd world-food-program-robust-simulator
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Open http://localhost:8501. The Syria WFP scenario loads automatically.
+open `http://localhost:8501`. the syria scenario loads itself.
 
-## Project Structure
+<!-- ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ -->
+
+## the floorplan
 
 ```
 food-relief-simulator/
-├── app.py                     # Streamlit entry point
-├── config.py                  # App-wide constants
+├── app.py                     # streamlit entry
+├── config.py                  # constants
 ├── requirements.txt
 │
 ├── core/
-│   ├── scenario.py            # Scenario dataclass + loader
-│   └── validators.py          # Data validation
+│   ├── scenario.py            # scenario dataclass + loader
+│   └── validators.py
 │
 ├── models/
-│   ├── base_model.py          # Shared multi-commodity flow constraints
-│   ├── nominal_lp.py          # Deterministic cost minimization
-│   ├── budget_constrained.py  # Maximize nutrition under budget
-│   ├── robust_socp.py         # Ellipsoidal robust optimization
-│   ├── adaptive_robust.py     # Affine decision rules (SOCP approx)
-│   ├── two_stage_recourse.py  # Finite-scenario two-stage (vectorized)
-│   ├── multi_period.py        # Multi-day planning with inventory
-│   └── solver_utils.py        # Solution extraction + metrics
+│   ├── base_model.py          # shared multi-commodity flow constraints
+│   ├── nominal_lp.py          # deterministic cost minimization
+│   ├── budget_constrained.py  # maximize nutrition under budget
+│   ├── robust_socp.py         # ellipsoidal robust optimization
+│   ├── adaptive_robust.py     # affine decision rules (SOCP approx)
+│   ├── two_stage_recourse.py  # finite-scenario two-stage
+│   ├── multi_period.py        # multi-day with inventory
+│   └── solver_utils.py
 │
 ├── simulation/
-│   └── monte_carlo.py         # Price scenario generation + evaluation
+│   └── monte_carlo.py         # price scenarios + evaluation
 │
 ├── ui/
-│   ├── pages/
-│   │   ├── 00_home.py         # Guided overview (Story Mode)
-│   │   ├── 01_scenario_manager.py
-│   │   ├── 02_scenario_builder.py
-│   │   ├── 03_optimization.py
-│   │   ├── 04_results.py      # Results dashboard
-│   │   ├── 05_disruption_lab.py
-│   │   ├── 06_multi_period.py
-│   │   ├── 07_monte_carlo.py  # Monte Carlo stress test
-│   │   ├── 08_comparison.py
-│   │   └── 09_adaptive.py     # Adaptive contracts
-│   ├── components/
-│   │   ├── shared.py          # Reusable: ribbons, progress bars, deltas
-│   │   ├── network_graph.py
-│   │   ├── sankey.py
-│   │   ├── nutrition_radar.py
-│   │   ├── cost_breakdown.py
-│   │   ├── tradeoff_curve.py
-│   │   └── monte_carlo_viz.py
-│   ├── theme.py
-│   └── tooltips.py
+│   ├── pages/                 # one page per room
+│   ├── components/            # network graphs, sankeys, radar charts
+│   └── theme.py
 │
-├── data/examples/syria_wfp/   # Pre-loaded scenario
-│   ├── scenario.json
-│   ├── nodes.csv
-│   ├── edges.csv
-│   ├── commodities.csv
-│   ├── nutrition.csv
-│   ├── procurement_costs.csv
-│   ├── nutrition_requirements.csv
-│   └── diet_constraints.csv
-│
+├── data/examples/syria_wfp/   # the pre-loaded scenario
 └── tests/
-    └── test_hybrid_nodes.py
 ```
 
-## Modeling Notes
+## modeling notes
 
-**Hybrid nodes:** Local markets (Hassakeh, Dara, etc.) both procure food and serve local demand. The model enforces `procurement + inflow = outflow + local_delivery` at every node — this matters because without it, demand nodes appear served without corresponding flow.
+**hybrid nodes.** local markets — hassakeh, dara, others — both procure food and serve local demand. the model enforces `procurement + inflow = outflow + local_delivery` at every node. without it, demand nodes look served without any flow reaching them. they aren't.
 
-**Uncertainty model:** International suppliers have ±5% price volatility (independent). Regional suppliers have ±30% volatility with cross-commodity correlation within each market.
+**uncertainty.** international suppliers carry ±5% price volatility, independent. regional suppliers carry ±30%, with cross-commodity correlation inside each market.
 
-**Two-stage caveat:** The adaptive model comparison is not pure "value of adaptivity" — it combines discounted contracts (a new instrument) with scenario-specific recourse (flexibility). See the in-app caveats for details.
+**a caveat.** the adaptive comparison is not a pure measure of "value of adaptivity." it combines discounted contracts (a new instrument) with scenario-specific recourse (flexibility). the in-app notes go deeper.
 
-## Based On
+<!-- ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ -->
 
-- MIT 15.094 Homework 3 (2021): Syria WFP food assistance case
-- Bertsimas & Tsitsiklis, *Introduction to Linear Optimization*
-- Boyd & Vandenberghe, *Convex Optimization*
-- Bertsimas, Sim, & Zhang, *Robust Optimization*
+## colophon
 
-## License
+based on:
+- MIT 15.094 homework 3 (2021), syria WFP food assistance
+- bertsimas & tsitsiklis, *introduction to linear optimization*
+- boyd & vandenberghe, *convex optimization*
+- bertsimas, sim, & zhang, *robust optimization*
 
-MIT
+`MIT` license. *built downstairs.* — [the basement, room 7](https://github.com/AthenaTheOwl)
