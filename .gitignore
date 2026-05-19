@@ -12,3 +12,8 @@ venv/
 *.log
 .DS_Store
 Thumbs.db
+
+# Reference materials (textbooks, case studies, homework)
+*.pdf
+*.xlsx
+*.jl
