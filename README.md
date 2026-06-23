@@ -95,6 +95,27 @@ food-relief-simulator/
 
 <!-- ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ -->
 
+## live demo
+
+Deploy with Streamlit Cloud using:
+
+```text
+streamlit_app.py
+```
+
+Local run:
+
+```bash
+python -m pip install -r requirements.txt
+python -m streamlit run streamlit_app.py
+```
+
+## connects to
+
+- `dispatch-optimizer` for the operational dispatch layer after allocation decisions.
+- `Robust-Facility-Location` for facility and network placement under uncertain demand.
+- `proof-gate-runner` for turning model sanity checks into reusable CI gates.
+
 ## colophon
 
 based on:
