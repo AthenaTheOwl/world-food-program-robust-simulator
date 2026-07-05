@@ -2,3 +2,5 @@
 {"config": "robust@0.90", "cost_delta": 3556.29, "cost_per_person": 0.4494, "nutrient_slack": 1.0, "procurement_cost": 26923.51, "robustness_level": 0.9, "total_cost": 34602.61, "transportation_cost": 7679.09}
 {"config": "robust@0.95", "cost_delta": 4518.46, "cost_per_person": 0.4619, "nutrient_slack": 1.0, "procurement_cost": 27738.52, "robustness_level": 0.95, "total_cost": 35564.78, "transportation_cost": 7826.25}
 {"config": "robust@0.99", "cost_delta": 6238.87, "cost_per_person": 0.4842, "nutrient_slack": 1.0, "procurement_cost": 28673.24, "robustness_level": 0.99, "total_cost": 37285.19, "transportation_cost": 8611.95}
+{"config": "adaptive@0.95", "cost_delta": -2381.02, "cost_per_person": null, "nutrient_slack": null, "procurement_cost": 21426.95, "robustness_level": 0.95, "total_cost": 28665.3, "transportation_cost": 7238.35}
+{"config": "budget@1.10x", "cost_delta": 3104.63, "cost_per_person": 0.4032, "nutrient_slack": 1.1, "procurement_cost": 26188.77, "robustness_level": null, "total_cost": 34150.95, "transportation_cost": 7962.18}
