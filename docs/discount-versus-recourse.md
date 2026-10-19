@@ -8,6 +8,10 @@ The next proposed synthetic experiment is a two-by-two comparison: fixed versus 
 
 Preserve the hybrid-node balance `procurement + inflow = outflow + local_delivery` in every cell. Count unserved demand explicitly when a route fails; a smaller invoice caused by leaving people unserved is not an improvement. The contract effect is the within-policy discount difference; the recourse effect is the within-price-regime policy difference. Report their interaction when it is material. This proposed decomposition uses synthetic scenarios and makes no operational relief recommendation.
 
+## Result (October 19, 2026)
+
+The two-by-two now runs in `reports/scorecard.py` on the Syria scenario with 20 shared price draws. Without the discount, recourse saves `$1,465 / day` over the fixed plan; with it, `$437 / day`. The discount saves `$1,956 / day` for the fixed plan and `$928 / day` with recourse, an interaction of `$1,028 / day`. Unserved demand is zero in every cell. The affine `adaptive@0.95` model's saving over the nominal plan disappears without the discount.
+
 ## References
 
 - https://web.stanford.edu/~boyd/cvxbook/
