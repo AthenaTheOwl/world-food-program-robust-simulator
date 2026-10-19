@@ -55,6 +55,8 @@ International suppliers carry +/-5% price volatility. Regional suppliers carry +
 
 The adaptive comparison combines discounted contracts with scenario-specific recourse. It is useful, with the contract discount and the recourse value intertwined.
 
+[October method update: Separate the contract discount from the value of adaptation](docs/discount-versus-recourse.md).
+
 ## Live demo
 
 Deploy with Streamlit Cloud using:
@@ -114,7 +116,3 @@ tests/
 ## License
 
 MIT.
-
-## Method update
-
-[October method update: Separate the contract discount from the value of adaptation](docs/discount-versus-recourse.md).
