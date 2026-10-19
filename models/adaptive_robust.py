@@ -23,6 +23,11 @@ class AdaptiveRobustModel:
 
     where z is the vector of uncertain price perturbations. This yields a
     single SOCP, solvable with standard convex solvers.
+
+    ``contract_discount`` is the fraction of the nominal price paid for
+    first-stage contract volumes (0.9 = 10% off; 1.0 = no discount). It is an
+    instrument, not adaptation: compare this model against a static plan only
+    with the same discount applied to both, or to neither.
     """
 
     def __init__(
@@ -34,6 +39,7 @@ class AdaptiveRobustModel:
     ):
         self.scenario = scenario
         self.robustness_level = robustness_level
+        self.contract_discount = contract_discount
         self.variables = {}
         self.constraints = []
         self._solved = False
@@ -278,7 +284,7 @@ class AdaptiveRobustModel:
             val = float(contract[(n, c)].value or 0)
             if val > 1e-3:
                 contract_volumes[(n, c)] = val
-                contract_cost_total += 0.9 * s.price_lookup[(n, c)] * val
+                contract_cost_total += self.contract_discount * s.price_lookup[(n, c)] * val
 
         # Spot volumes
         spot_volumes = {}
