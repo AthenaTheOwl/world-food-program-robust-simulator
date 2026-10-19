@@ -51,6 +51,19 @@ def render():
                 if model.is_solved:
                     st.session_state["adp_results"] = model.extract_results()
 
+                    # Matched baseline: same discount and price draws, no recourse.
+                    fixed = TwoStageRecourseModel(
+                        scenario,
+                        n_scenarios=n_scenarios,
+                        contract_discount=1 - discount / 100,
+                        max_contract_fraction=max_contract,
+                        recourse=False,
+                    )
+                    fixed.solve()
+                    st.session_state["adp_fixed"] = (
+                        fixed.extract_results() if fixed.is_solved else None
+                    )
+
                     static = RobustSOCP(scenario, robustness, fix_slack=1.0)
                     static.solve()
                     st.session_state["adp_static"] = extract_solution(static, robustness)
@@ -65,6 +78,7 @@ def render():
 
     r = st.session_state["adp_results"]
     static = st.session_state.get("adp_static")
+    fixed = st.session_state.get("adp_fixed")
 
     # ── Punchline metrics ──
     savings = (static.total_cost - r["total_cost"]) if static else 0
@@ -76,6 +90,13 @@ def render():
         col2.metric("Static Robust", format_currency(static.total_cost))
         col3.metric("Difference", format_currency(-savings), delta=f"-{pct:.0f}%")
     col4.metric("Contract Share", f"{r['contract_fraction']:.0%}")
+    if fixed:
+        st.caption(
+            f"Value of recourse at the same {discount}% discount: "
+            f"{format_currency(fixed['total_cost'] - r['total_cost'])} "
+            f"(fixed plan {format_currency(fixed['total_cost'])}). "
+            f"Unserved demand: {r.get('unserved_demand', 0):,.0f} people."
+        )
 
     st.markdown("---")
 
