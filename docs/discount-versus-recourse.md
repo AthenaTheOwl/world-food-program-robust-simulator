@@ -11,4 +11,3 @@ Preserve the hybrid-node balance `procurement + inflow = outflow + local_deliver
 ## References
 
 - https://web.stanford.edu/~boyd/cvxbook/
-- https://github.com/3orionkings/ai-product-team/blob/main/workflows/process-change.md
