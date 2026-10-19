@@ -114,3 +114,7 @@ tests/
 ## License
 
 MIT.
+
+## Method update
+
+[October method update: Separate the contract discount from the value of adaptation](docs/discount-versus-recourse.md).
