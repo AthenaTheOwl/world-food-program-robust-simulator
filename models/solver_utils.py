@@ -16,6 +16,7 @@ class SolutionResult:
     transportation_cost: float = 0.0
     nutrient_slack: float = 0.0
     robustness_level: float = 0.5
+    unserved_demand: float = 0.0  # people without a full ration
 
     # Breakdown dicts
     procurement: dict = field(default_factory=dict)  # {(node, commodity): tons}
@@ -36,6 +37,41 @@ class SolutionResult:
     @property
     def is_optimal(self):
         return self.status in ("optimal", "optimal_inaccurate")
+
+
+def unserved_people(scenario, delivery, ration_pp, nutrients_pp, tol: float = 1e-6) -> float:
+    """People left without a full ration, summed over demand nodes.
+
+    ``delivery`` is a (demand node x commodity) array of tons, ``ration_pp`` a
+    per-commodity kg/person/day vector and ``nutrients_pp`` a per-nutrient
+    vector, all in the scenario's list order. A node's people count as served
+    in proportion to the smaller of the share of their ration delivered and
+    the share of the nutrition requirement that ration meets (capped at 1).
+    A cheaper plan that leaves people unserved shows up here, not as savings.
+    """
+    s = scenario
+    delivery = np.maximum(np.asarray(delivery, dtype=float), 0.0)
+    ration = np.maximum(np.asarray(ration_pp, dtype=float), 0.0)
+    nutrients = np.asarray(nutrients_pp, dtype=float)
+
+    coverage = 1.0
+    for ki, nutrient in enumerate(s.nutrient_list):
+        req = s.get_requirement(nutrient)
+        if req > 0:
+            coverage = min(coverage, nutrients[ki] / req)
+
+    unserved = 0.0
+    for di, d in enumerate(s.demand_nodes):
+        people = s.demand_dict[d]
+        served = coverage
+        for ci in range(len(s.commodity_list)):
+            needed = people * ration[ci] / 1000
+            if needed > ACTIVE_THRESHOLD:
+                served = min(served, delivery[di, ci] / needed)
+        served = max(0.0, min(1.0, served))
+        if served < 1 - tol:
+            unserved += people * (1 - served)
+    return round(unserved, 1)
 
 
 def extract_solution(model, robustness_level: float = 0.5) -> SolutionResult:
@@ -102,6 +138,13 @@ def extract_solution(model, robustness_level: float = 0.5) -> SolutionResult:
     effective_people = slack * s.total_demand if slack > 0 else 0
     cost_per_person = total_cost / effective_people if effective_people > 0 else float("inf")
 
+    unserved = unserved_people(
+        s,
+        [[float(v["delivery"][(d, c)].value) for c in s.commodity_list] for d in s.demand_nodes],
+        [float(v["ration_pp"][c].value) for c in s.commodity_list],
+        [float(v["nutrients_pp"][n].value) for n in s.nutrient_list],
+    )
+
     num_active_proc = len(procurement)
     num_active_trans = len(transportation)
 
@@ -112,6 +155,7 @@ def extract_solution(model, robustness_level: float = 0.5) -> SolutionResult:
         transportation_cost=round(trans_cost, 2),
         nutrient_slack=round(slack, 4),
         robustness_level=robustness_level,
+        unserved_demand=unserved,
         procurement=procurement,
         flows=flows,
         delivery=delivery,

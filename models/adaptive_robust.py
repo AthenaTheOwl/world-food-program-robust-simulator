@@ -6,6 +6,7 @@ from scipy.stats import norm as normal_dist
 
 from core.scenario import Scenario
 from config import DEFAULT_SOLVER, FALLBACK_SOLVER
+from models.solver_utils import unserved_people
 
 
 class AdaptiveRobustModel:
@@ -303,6 +304,16 @@ class AdaptiveRobustModel:
 
         total = contract_cost_total + float(self.variables["spot_cost"].value or 0) + trans_cost
 
+        unserved = unserved_people(
+            s,
+            [
+                [float(self.variables["delivery"][(d, c)].value or 0) for c in s.commodity_list]
+                for d in s.demand_nodes
+            ],
+            [float(self.variables["ration_pp"][c].value or 0) for c in s.commodity_list],
+            [float(self.variables["nutrients_pp"][n].value or 0) for n in s.nutrient_list],
+        )
+
         # Ration
         ration_pp = {
             c: float(self.variables["ration_pp"][c].value or 0)
@@ -316,6 +327,8 @@ class AdaptiveRobustModel:
             "contract_cost": round(contract_cost_total, 2),
             "spot_cost": round(float(self.variables["spot_cost"].value or 0), 2),
             "transportation_cost": round(trans_cost, 2),
+            "unserved_demand": unserved,
+            "contract_discount": self.contract_discount,
             "contract_volumes": contract_volumes,
             "spot_volumes": spot_volumes,
             "contract_fraction": round(

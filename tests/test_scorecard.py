@@ -23,7 +23,7 @@ def test_scorecard_shape_and_determinism():
         assert first_output == second_output
 
         rows = _read_jsonl(first_path)
-        assert len(rows) == 6
+        assert len(rows) == 11
         config_names = {row["config"] for row in rows}
         assert config_names == {
             "nominal",
@@ -31,10 +31,21 @@ def test_scorecard_shape_and_determinism():
             "robust@0.95",
             "robust@0.99",
             "adaptive@0.95",
+            "adaptive@0.95/no-discount",
             "budget@1.10x",
+            "fixed/no-discount",
+            "fixed/discount",
+            "recourse/no-discount",
+            "recourse/discount",
         }
 
-        required_columns = {"config", "robustness_level", "total_cost", "cost_delta"}
+        required_columns = {
+            "config",
+            "robustness_level",
+            "contract_discount",
+            "total_cost",
+            "cost_delta",
+        }
         for row in rows:
             assert required_columns <= set(row)
             assert isinstance(row["cost_delta"], (int, float))
@@ -42,7 +53,7 @@ def test_scorecard_shape_and_determinism():
             assert math.isfinite(row["cost_delta"])
             for field_name in METRIC_FIELDS:
                 value = row[field_name]
-                if row["config"] == "adaptive@0.95" and field_name in {
+                if not row["config"].startswith(("nominal", "robust@", "budget@")) and field_name in {
                     "cost_per_person",
                     "nutrient_slack",
                 }:
@@ -61,6 +72,8 @@ def test_scorecard_shape_and_determinism():
         budget = next(row for row in rows if row["config"] == "budget@1.10x")
         assert adaptive["total_cost"] < nominal_cost
         assert budget["nutrient_slack"] > nominal["nutrient_slack"]
+        for row in rows:
+            assert row["unserved_demand"] == 0.0
     finally:
         with suppress(FileNotFoundError):
             first_path.unlink()
