@@ -74,8 +74,6 @@ International suppliers carry +/-5% price volatility. Regional suppliers carry +
 
 The adaptive comparison combines discounted contracts with scenario-specific recourse. The contract discount is an explicit parameter (`contract_discount`, the fraction of nominal price paid for contracts; `1.0` means no discount), and the scorecard applies it to both plans or to neither, as in the table above.
 
-[October method update: Separate the contract discount from the value of adaptation](docs/discount-versus-recourse.md).
-
 ## Live demo
 
 Deploy with Streamlit Cloud using:
@@ -131,6 +129,10 @@ tests/
 - Bertsimas and Tsitsiklis, *Introduction to Linear Optimization*.
 - Boyd and Vandenberghe, *Convex Optimization*.
 - Bertsimas, Sim, and Zhang, *Robust Optimization*.
+
+## Method update
+
+[October method update: Separate the contract discount from the value of adaptation](docs/discount-versus-recourse.md).
 
 ## License
 
