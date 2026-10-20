@@ -88,7 +88,11 @@ def render():
     col1.metric("Two-Stage Cost", format_currency(r["total_cost"]))
     if static:
         col2.metric("Static Robust", format_currency(static.total_cost))
-        col3.metric("Difference", format_currency(-savings), delta=f"-{pct:.0f}%")
+        col3.metric(
+            f"Difference (incl. {discount}% discount)",
+            format_currency(-savings),
+            delta=f"-{pct:.0f}%",
+        )
     col4.metric("Contract Share", f"{r['contract_fraction']:.0%}")
     if fixed:
         st.caption(
@@ -170,7 +174,12 @@ def render():
         f"Contracts lock in {discount}% savings on {r['contract_fraction']:.0%} of spend",
         f"Spot purchases adjust per scenario — different foods, routes, ration mixes",
         f"Total: **{format_currency(r['total_cost'])}**"
-        + (f" vs {format_currency(static.total_cost)} static robust" if static else ""),
+        + (
+            f" vs {format_currency(static.total_cost)} static robust"
+            f" (the gap includes the {discount}% contract discount)"
+            if static
+            else ""
+        ),
     ])
 
     # ── Detail tables in expanders ──
