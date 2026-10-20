@@ -51,6 +51,19 @@ def render():
                 if model.is_solved:
                     st.session_state["adp_results"] = model.extract_results()
 
+                    # Matched baseline: same discount and price draws, no recourse.
+                    fixed = TwoStageRecourseModel(
+                        scenario,
+                        n_scenarios=n_scenarios,
+                        contract_discount=1 - discount / 100,
+                        max_contract_fraction=max_contract,
+                        recourse=False,
+                    )
+                    fixed.solve()
+                    st.session_state["adp_fixed"] = (
+                        fixed.extract_results() if fixed.is_solved else None
+                    )
+
                     static = RobustSOCP(scenario, robustness, fix_slack=1.0)
                     static.solve()
                     st.session_state["adp_static"] = extract_solution(static, robustness)
@@ -65,6 +78,7 @@ def render():
 
     r = st.session_state["adp_results"]
     static = st.session_state.get("adp_static")
+    fixed = st.session_state.get("adp_fixed")
 
     # ── Punchline metrics ──
     savings = (static.total_cost - r["total_cost"]) if static else 0
@@ -74,8 +88,19 @@ def render():
     col1.metric("Two-Stage Cost", format_currency(r["total_cost"]))
     if static:
         col2.metric("Static Robust", format_currency(static.total_cost))
-        col3.metric("Difference", format_currency(-savings), delta=f"-{pct:.0f}%")
+        col3.metric(
+            f"Difference (incl. {discount}% discount)",
+            format_currency(-savings),
+            delta=f"-{pct:.0f}%",
+        )
     col4.metric("Contract Share", f"{r['contract_fraction']:.0%}")
+    if fixed:
+        st.caption(
+            f"Value of recourse at the same {discount}% discount: "
+            f"{format_currency(fixed['total_cost'] - r['total_cost'])} "
+            f"(fixed plan {format_currency(fixed['total_cost'])}). "
+            f"Unmet ration: {r.get('unserved_demand', 0):,.0f} person-equivalents."
+        )
 
     st.markdown("---")
 
@@ -149,7 +174,12 @@ def render():
         f"Contracts lock in {discount}% savings on {r['contract_fraction']:.0%} of spend",
         f"Spot purchases adjust per scenario — different foods, routes, ration mixes",
         f"Total: **{format_currency(r['total_cost'])}**"
-        + (f" vs {format_currency(static.total_cost)} static robust" if static else ""),
+        + (
+            f" vs {format_currency(static.total_cost)} static robust"
+            f" (the gap includes the {discount}% contract discount)"
+            if static
+            else ""
+        ),
     ])
 
     # ── Detail tables in expanders ──

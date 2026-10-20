@@ -6,6 +6,7 @@ from scipy.stats import norm as normal_dist
 
 from core.scenario import Scenario
 from config import DEFAULT_SOLVER, FALLBACK_SOLVER
+from models.solver_utils import unserved_people
 
 
 class AdaptiveRobustModel:
@@ -23,6 +24,11 @@ class AdaptiveRobustModel:
 
     where z is the vector of uncertain price perturbations. This yields a
     single SOCP, solvable with standard convex solvers.
+
+    ``contract_discount`` is the fraction of the nominal price paid for
+    first-stage contract volumes (0.9 = 10% off; 1.0 = no discount). It is an
+    instrument, not adaptation: compare this model against a static plan only
+    with the same discount applied to both, or to neither.
     """
 
     def __init__(
@@ -34,6 +40,7 @@ class AdaptiveRobustModel:
     ):
         self.scenario = scenario
         self.robustness_level = robustness_level
+        self.contract_discount = contract_discount
         self.variables = {}
         self.constraints = []
         self._solved = False
@@ -278,7 +285,7 @@ class AdaptiveRobustModel:
             val = float(contract[(n, c)].value or 0)
             if val > 1e-3:
                 contract_volumes[(n, c)] = val
-                contract_cost_total += 0.9 * s.price_lookup[(n, c)] * val
+                contract_cost_total += self.contract_discount * s.price_lookup[(n, c)] * val
 
         # Spot volumes
         spot_volumes = {}
@@ -297,6 +304,16 @@ class AdaptiveRobustModel:
 
         total = contract_cost_total + float(self.variables["spot_cost"].value or 0) + trans_cost
 
+        unserved = unserved_people(
+            s,
+            [
+                [float(self.variables["delivery"][(d, c)].value or 0) for c in s.commodity_list]
+                for d in s.demand_nodes
+            ],
+            [float(self.variables["ration_pp"][c].value or 0) for c in s.commodity_list],
+            [float(self.variables["nutrients_pp"][n].value or 0) for n in s.nutrient_list],
+        )
+
         # Ration
         ration_pp = {
             c: float(self.variables["ration_pp"][c].value or 0)
@@ -310,6 +327,8 @@ class AdaptiveRobustModel:
             "contract_cost": round(contract_cost_total, 2),
             "spot_cost": round(float(self.variables["spot_cost"].value or 0), 2),
             "transportation_cost": round(trans_cost, 2),
+            "unserved_demand": unserved,
+            "contract_discount": self.contract_discount,
             "contract_volumes": contract_volumes,
             "spot_volumes": spot_volumes,
             "contract_fraction": round(

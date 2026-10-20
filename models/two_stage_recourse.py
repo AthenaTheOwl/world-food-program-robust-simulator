@@ -21,6 +21,7 @@ import numpy as np
 from scipy import sparse
 
 from core.scenario import Scenario
+from models.solver_utils import unserved_people
 from simulation.monte_carlo import generate_price_scenarios
 from config import DEFAULT_SOLVER, FALLBACK_SOLVER
 
@@ -35,11 +36,19 @@ class TwoStageRecourseModel:
     n_scenarios : int
         Number of price scenarios to sample. More = better approximation, slower.
     contract_discount : float
-        Fraction of nominal price for contract purchases (e.g. 0.9 = 10% off).
+        Fraction of nominal price for contract purchases (e.g. 0.9 = 10% off;
+        1.0 = no discount). This is a pricing instrument, separate from
+        recourse: compare plans only with the same discount on both sides.
     max_contract_fraction : float
         Max fraction of estimated total need that can be contracted.
     seed : int
         RNG seed for reproducible scenario generation.
+    recourse : bool
+        If True (default), spot buys, routing, delivery and rations adapt to
+        each price scenario. If False, they are fixed before prices are
+        revealed (one plan for every scenario) while the network, nutrition
+        targets, price draws and discount stay the same. The cost gap between
+        the two at a fixed discount is the value of recourse.
     """
 
     def __init__(
@@ -49,10 +58,12 @@ class TwoStageRecourseModel:
         contract_discount: float = 0.90,
         max_contract_fraction: float = 0.8,
         seed: int = 42,
+        recourse: bool = True,
     ):
         self.scenario = scenario
         self.n_scenarios = n_scenarios
         self.contract_discount = contract_discount
+        self.recourse = recourse
         self._solved = False
 
         s = scenario
@@ -166,6 +177,16 @@ class TwoStageRecourseModel:
 
         for si in range(S):
             prices_s = self.price_scenarios[si]  # (P,)
+
+            if not recourse and si > 0:
+                # Fixed plan: every scenario reuses the first scenario's
+                # decisions; only the realized prices differ.
+                sv = self._scenario_vars[0]
+                scenario_cost_exprs.append(
+                    prices_s @ sv["spot"] + transport_cost_vec @ sv["transport"]
+                )
+                self._scenario_vars.append(sv)
+                continue
 
             spot_s = cp.Variable(P, nonneg=True, name=f"spot_{si}")
             flow_s = cp.Variable((E, C), nonneg=True, name=f"flow_{si}")
@@ -291,9 +312,16 @@ class TwoStageRecourseModel:
                 "spot_cost": round(spot_total, 2),
                 "transport_cost": round(trans_total, 2),
                 "recourse_cost": round(spot_total + trans_total, 2),
+                "unserved_demand": unserved_people(
+                    s,
+                    sv["delivery"].value,
+                    sv["ration"].value,
+                    sv["nutrients"].value,
+                ),
             })
 
         avg_recourse = float(np.mean([r["recourse_cost"] for r in scenario_results]))
+        avg_unserved = float(np.mean([r["unserved_demand"] for r in scenario_results]))
         total = contract_cost_total + avg_recourse
 
         # Average ration across scenarios
@@ -309,6 +337,9 @@ class TwoStageRecourseModel:
             "total_cost": round(total, 2),
             "contract_cost": round(contract_cost_total, 2),
             "avg_recourse_cost": round(avg_recourse, 2),
+            "unserved_demand": round(avg_unserved, 1),
+            "contract_discount": self.contract_discount,
+            "recourse": self.recourse,
             "contract_volumes": contract_volumes,
             "contract_fraction": round(contract_cost_total / total if total > 0 else 0, 3),
             "num_contracts": len(contract_volumes),
