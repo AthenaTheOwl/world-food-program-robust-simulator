@@ -10,12 +10,11 @@ def _read_jsonl(path):
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
 
 
-def test_scorecard_shape_and_determinism():
-    first_path = Path("reports/scorecard-first-test.jsonl")
+def test_scorecard_shape_and_determinism(scorecard_path):
+    first_path = scorecard_path
     second_path = Path("reports/scorecard-second-test.jsonl")
 
     try:
-        generate_scorecard(first_path)
         first_output = first_path.read_text(encoding="utf-8")
         generate_scorecard(second_path)
         second_output = second_path.read_text(encoding="utf-8")
@@ -75,7 +74,5 @@ def test_scorecard_shape_and_determinism():
         for row in rows:
             assert row["unserved_demand"] == 0.0
     finally:
-        with suppress(FileNotFoundError):
-            first_path.unlink()
         with suppress(FileNotFoundError):
             second_path.unlink()

@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import numpy as np
@@ -13,7 +14,6 @@ from reports.scorecard import (
     TWO_STAGE_SCENARIOS,
     TWO_STAGE_SEED,
     decompose,
-    generate_scorecard,
 )
 
 SCENARIO_DIR = Path(__file__).resolve().parents[1] / "data" / "examples" / "syria_wfp"
@@ -25,8 +25,9 @@ def scenario():
 
 
 @pytest.fixture(scope="module")
-def rows(tmp_path_factory):
-    return generate_scorecard(tmp_path_factory.mktemp("scorecard") / "scorecard.jsonl")
+def rows(scorecard_path):
+    lines = scorecard_path.read_text(encoding="utf-8").splitlines()
+    return [json.loads(line) for line in lines]
 
 
 def _per_scenario_costs(model):
