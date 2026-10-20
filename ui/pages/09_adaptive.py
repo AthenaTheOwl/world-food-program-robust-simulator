@@ -95,7 +95,7 @@ def render():
             f"Value of recourse at the same {discount}% discount: "
             f"{format_currency(fixed['total_cost'] - r['total_cost'])} "
             f"(fixed plan {format_currency(fixed['total_cost'])}). "
-            f"Unserved demand: {r.get('unserved_demand', 0):,.0f} people."
+            f"Unmet ration: {r.get('unserved_demand', 0):,.0f} person-equivalents."
         )
 
     st.markdown("---")

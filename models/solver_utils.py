@@ -16,7 +16,7 @@ class SolutionResult:
     transportation_cost: float = 0.0
     nutrient_slack: float = 0.0
     robustness_level: float = 0.5
-    unserved_demand: float = 0.0  # people without a full ration
+    unserved_demand: float = 0.0  # unmet ration, in person-equivalents
 
     # Breakdown dicts
     procurement: dict = field(default_factory=dict)  # {(node, commodity): tons}
@@ -40,13 +40,16 @@ class SolutionResult:
 
 
 def unserved_people(scenario, delivery, ration_pp, nutrients_pp, tol: float = 1e-6) -> float:
-    """People left without a full ration, summed over demand nodes.
+    """Unmet ration in person-equivalents, summed over demand nodes.
 
     ``delivery`` is a (demand node x commodity) array of tons, ``ration_pp`` a
     per-commodity kg/person/day vector and ``nutrients_pp`` a per-nutrient
     vector, all in the scenario's list order. A node's people count as served
     in proportion to the smaller of the share of their ration delivered and
-    the share of the nutrition requirement that ration meets (capped at 1).
+    the share of the nutrition requirement that ration meets (capped at 1),
+    so a node at 80% of a full ration contributes 20% of its people. This is
+    a shortfall in person-equivalents, not a headcount of people without a
+    full ration.
     A cheaper plan that leaves people unserved shows up here, not as savings.
     """
     s = scenario

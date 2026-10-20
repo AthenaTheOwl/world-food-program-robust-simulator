@@ -27,7 +27,7 @@ The pre-loaded scenario is based on a Syria food-assistance exercise.
 | Nominal cost | `$31,046 / day` |
 | 95% protected cost | `$35,565 / day`, `+15%` |
 | Two-stage adaptive, 10% contract discount | `$28,201 / day` |
-| Budget `$6k` to nutrition | `19.3%` coverage, `62,119` people unserved |
+| Budget `$6k` to nutrition | `19.3%` coverage, `62,119` person-equivalents of unmet need (every person gets the same partial ration) |
 | Unserved demand, every full-coverage plan | `0` people |
 | Monte Carlo calibration | `50.8% / 90.1% / 95.1%` |
 
