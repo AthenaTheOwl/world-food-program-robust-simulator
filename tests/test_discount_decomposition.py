@@ -5,7 +5,7 @@ import pytest
 
 from core.scenario import Scenario
 from models.budget_constrained import BudgetConstrainedModel
-from models.solver_utils import extract_solution
+from models.solver_utils import extract_solution, unserved_people
 from models.two_stage_recourse import TwoStageRecourseModel
 from reports.scorecard import (
     MAX_CONTRACT_FRACTION,
@@ -113,3 +113,21 @@ def test_unserved_demand_counts_people_a_budget_cut_leaves_out(scenario):
     assert solution.nutrient_slack < 1
     expected = (1 - solution.nutrient_slack) * scenario.total_demand
     assert solution.unserved_demand == pytest.approx(expected, rel=1e-3)
+
+
+def test_unserved_people_counts_a_delivery_shortfall_at_one_node(scenario):
+    # Full nutrient coverage, full delivery everywhere except one commodity at
+    # the first demand node, which gets half its ration: that node's people
+    # are half served, so half of them count as unmet ration.
+    ration = np.zeros(len(scenario.commodity_list))
+    ration[0] = 500.0
+    nutrients = np.array([scenario.get_requirement(n) for n in scenario.nutrient_list])
+    people = np.array([scenario.demand_dict[d] for d in scenario.demand_nodes], dtype=float)
+    delivery = np.outer(people, ration) / 1000
+    delivery[0, 0] *= 0.5
+
+    expected = people[0] * 0.5
+    assert unserved_people(scenario, delivery, ration, nutrients) == pytest.approx(
+        expected, abs=0.1
+    )
+    assert unserved_people(scenario, np.outer(people, ration) / 1000, ration, nutrients) == 0.0
