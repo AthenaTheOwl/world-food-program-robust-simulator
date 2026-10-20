@@ -43,7 +43,7 @@ Same network, nutrition targets and 20 price draws in every cell. A fixed plan c
 - Value of recourse: `$1,465 / day` without the discount, `$437 / day` with it.
 - Value of the discount: `$1,956 / day` for the fixed plan, `$928 / day` with recourse.
 - Interaction: `$1,028 / day`. The two overlap, so they do not add.
-- Unserved demand is `0` in all four cells.
+- Unserved demand is `0` in all four cells by construction: the cells use the undisrupted network, and nutrition and delivery are hard constraints. The disrupted-route cells in the method update remain proposed.
 
 The fixed, no-discount cell sits below the nominal plan because it is priced at the 20 sampled draws rather than at nominal prices; compare within the table. The affine adaptive model (`adaptive@0.95`) costs `$28,665` with the discount and `$31,046` without it, the same as the nominal plan, so its saving over the nominal plan is the discount alone.
 
@@ -72,7 +72,7 @@ Without that balance, a demand node can look served while no food reaches it.
 
 International suppliers carry +/-5% price volatility. Regional suppliers carry +/-30%, with cross-commodity correlation inside each market.
 
-The adaptive comparison combines discounted contracts with scenario-specific recourse. The contract discount is an explicit parameter (`contract_discount`, the fraction of nominal price paid for contracts; `1.0` means no discount), and the scorecard applies it to both plans or to neither, as in the table above.
+The adaptive comparison combines discounted contracts with scenario-specific recourse. The contract discount is an explicit parameter (`contract_discount`, the fraction of nominal price paid for contracts; `1.0` means no discount), and every scorecard row records it. The two-by-two above applies it to both plans or to neither. `cost_delta` is always measured against the undiscounted nominal plan, so for a discounted row compare it with its no-discount twin or read it within the two-by-two.
 
 ## Live demo
 

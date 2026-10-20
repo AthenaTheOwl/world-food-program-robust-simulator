@@ -326,7 +326,7 @@ def main(argv: Union[list[str], None] = None) -> int:
     print(
         f"Wrote {len(rows)} rows to {DEFAULT_OUTPUT_PATH}; "
         f"price_of_protection_0.95={price_of_protection:.2f}; "
-        f"adaptive_saving={adaptive_saving:.2f}; "
+        f"adaptive_saving_with_discount_vs_nominal={adaptive_saving:.2f}; "
         f"adaptive_saving_no_discount={adaptive_saving_no_discount:.2f}; "
         + "; ".join(f"{name}={value:.2f}" for name, value in effects.items())
         + f"; max_unserved_demand={unserved:.1f}"
