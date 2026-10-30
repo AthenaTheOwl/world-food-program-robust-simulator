@@ -17,3 +17,4 @@ Thumbs.db
 *.pdf
 *.xlsx
 *.jl
+.gstack/
